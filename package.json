@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:ci": "jest --collectCoverage --ci --reporters=default --reporters=jest-junit"
+    "test:ci": "jest --collectCoverage --ci --reporters=default --reporters=jest-junit --coverageReporters=cobertura --coverageReporters=html"
   },
   "jest": {
     "collectCoverage": true,
