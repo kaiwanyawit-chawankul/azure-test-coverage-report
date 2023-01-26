@@ -18,3 +18,7 @@ If you want to learn more about creating good readme files then refer the follow
 - [ASP.NET Core](https://github.com/aspnet/Home)
 - [Visual Studio Code](https://github.com/Microsoft/vscode)
 - [Chakra Core](https://github.com/Microsoft/ChakraCore)
+
+
+https://stackoverflow.com/questions/51720050/how-to-publish-jest-unit-test-results-in-vsts-tests
+
