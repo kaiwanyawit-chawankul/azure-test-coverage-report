@@ -7,6 +7,15 @@
     "test": "jest",
     "test:ci": "jest --collectCoverage"
   },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["./src/**"],
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://jobjingjo0097@dev.azure.com/jobjingjo0097/test-report/_git/test-report"
