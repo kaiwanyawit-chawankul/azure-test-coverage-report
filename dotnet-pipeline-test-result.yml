@@ -12,7 +12,7 @@ pool:
 steps:
 - bash: |
    # Write your commands here
-   
+   dotnet build
    IFS=$'\n'
    ALL_ARRAY=(`dotnet test --list-tests`)
    FILTERED_ARRAY=(`dotnet test --list-tests --filter "Category=Skip"`)
