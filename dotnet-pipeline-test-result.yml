@@ -1,0 +1,24 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- bash: |
+   # Write your commands here
+   
+   IFS=$'\n'
+   ALL_ARRAY=(`dotnet test --list-tests`)
+   FILTERED_ARRAY=(`dotnet test --list-tests --filter "Category=Skip"`)
+   SKIPPED_ARRAY=(`echo ${ALL_ARRAY[@]} ${FILTERED_ARRAY[@]} | sed 's/ /\n/g' | sort | uniq -u`)
+   len=${#SKIPPED_ARRAY[@]}
+   echo $len
+   for (( i=0; i<$len; i++ )); do echo "${SKIPPED_ARRAY[$i]}" ; done
+   
+  displayName: 'Bash Script'
