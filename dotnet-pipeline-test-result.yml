@@ -24,8 +24,7 @@ steps:
    len=${#SKIPPED_ARRAY[@]}
    if [ $len -gt 0 ]
    then
-     echo "##vso[task.logissue type=warning] found ${len} skipped test(s) by this filter ${{ variables.testFilter}}"
-     for (( i=0; i<$len; i++ )); do echo "${SKIPPED_ARRAY[$i]}" ; done
+     echo "##vso[task.logissue type=warning] found ${len} skipped test(s) by this filter ${{ variables.testFilter}}\n ${SKIPPED_ARRAY[*]}"
    fi
 
   displayName: 'Bash Script'
