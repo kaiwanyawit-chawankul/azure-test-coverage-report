@@ -18,7 +18,10 @@ steps:
    FILTERED_ARRAY=(`dotnet test --list-tests --filter "Category=Skip"`)
    SKIPPED_ARRAY=(`echo ${ALL_ARRAY[@]} ${FILTERED_ARRAY[@]} | sed 's/ /\n/g' | sort | uniq -u`)
    len=${#SKIPPED_ARRAY[@]}
-   echo $len
-   for (( i=0; i<$len; i++ )); do echo "${SKIPPED_ARRAY[$i]}" ; done
-   
+   if [ len -gt 0 ]
+   then
+     echo "##vso[task.logissue type=warning] found ${len} skipped test(s)"
+     for (( i=0; i<$len; i++ )); do echo "${SKIPPED_ARRAY[$i]}" ; done
+   fi
+
   displayName: 'Bash Script'
