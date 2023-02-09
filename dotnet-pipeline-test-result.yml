@@ -6,6 +6,10 @@
 trigger:
 - main
 
+variables:
+- name: testFilter
+  value: Category!=Skip 
+
 pool:
   vmImage: ubuntu-latest
 
@@ -15,12 +19,12 @@ steps:
    dotnet build
    IFS=$'\n'
    ALL_ARRAY=(`dotnet test --list-tests`)
-   FILTERED_ARRAY=(`dotnet test --list-tests --filter "Category=Skip"`)
+   FILTERED_ARRAY=(`dotnet test --list-tests --filter "${{ variables.testFilter }}"`)
    SKIPPED_ARRAY=(`echo ${ALL_ARRAY[@]} ${FILTERED_ARRAY[@]} | sed 's/ /\n/g' | sort | uniq -u`)
    len=${#SKIPPED_ARRAY[@]}
    if [ $len -gt 0 ]
    then
-     echo "##vso[task.logissue type=warning] found ${len} skipped test(s)"
+     echo "##vso[task.logissue type=warning] found ${len} skipped test(s) by this filter ${{ variables.testFilter}}"
      for (( i=0; i<$len; i++ )); do echo "${SKIPPED_ARRAY[$i]}" ; done
    fi
 
