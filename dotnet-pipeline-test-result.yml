@@ -20,10 +20,10 @@ steps:
    IFS=$'\n'
    ALL_ARRAY=(`dotnet test --list-tests`)
    echo "-----ALL_ARRAY-----"
-   echo $ALL_ARRAY
+   echo "{$ALL_ARRAY[*]}"
    FILTERED_ARRAY=(`dotnet test --list-tests --filter "${{ variables.testFilter }}"`)
    echo "-----FILTERED_ARRAY-----"
-   echo $FILTERED_ARRAY
+   echo "{$FILTERED_ARRAY[*]}"
    SKIPPED_ARRAY=(`echo ${ALL_ARRAY[@]} ${FILTERED_ARRAY[@]} | sed 's/ /\n/g' | sort | uniq -u`)
    len=${#SKIPPED_ARRAY[@]}
    if [ $len -gt 0 ]
