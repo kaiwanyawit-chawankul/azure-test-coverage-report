@@ -32,7 +32,7 @@ jobs:
       run: dotnet test
       working-directory: ./srcBDD/JobBDD
     - name: Generate LivingDoc
-      run: livingdoc feature-folder ./Features --output-directory ./LivingDoc --clean --title "MyProject LivingDoc"
+      run: livingdoc feature-folder ./Features --output ./LivingDoc.html --title "MyProject LivingDoc"
       working-directory: ./srcBDD/JobBDD
     - name: Upload LivingDoc artifact
       uses: actions/upload-artifact@v2.2.3
