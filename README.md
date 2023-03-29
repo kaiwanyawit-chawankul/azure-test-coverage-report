@@ -7,3 +7,4 @@
 https://stackoverflow.com/questions/51720050/how-to-publish-jest-unit-test-results-in-vsts-tests
 
 
+https://github.com/coverlet-coverage/coverlet/blob/master/Documentation/KnownIssues.md
