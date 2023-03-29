@@ -8,3 +8,5 @@ https://stackoverflow.com/questions/51720050/how-to-publish-jest-unit-test-resul
 
 
 https://github.com/coverlet-coverage/coverlet/blob/master/Documentation/KnownIssues.md
+https://stackoverflow.com/questions/68591472/dotnet-reportgenerator-is-not-able-to-find-any-coverage-cobertura-xml-when-runni
+
