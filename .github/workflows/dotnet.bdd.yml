@@ -1,7 +1,7 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: .NET
+name: BDD .NET
 
 on:
   push:
@@ -22,12 +22,15 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
+      working-directory: ./srcBDD/JobBDD
     - name: Build
       run: dotnet build --no-restore
+      working-directory: ./srcBDD/JobBDD
     - name: Install SpecFlow.Plus.LivingDoc.CLI
       run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
     - name: Test
       run: dotnet test
+      working-directory: ./srcBDD/JobBDD
     - name: Generate LivingDoc
       run: livingdoc feature-folder ./Features --output-directory ./LivingDoc --clean --title "MyProject LivingDoc"
       working-directory: ./srcBDD/JobBDD
