@@ -1,4 +1,4 @@
-    #! /usr/bin/env bash
+#! /usr/bin/env bash
    TEST_FILTER=$1
    # Write your commands here
   
