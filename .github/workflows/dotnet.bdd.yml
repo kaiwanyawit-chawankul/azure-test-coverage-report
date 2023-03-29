@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'srcBDD/JobBDD/**'
+      - 'srcBDD/**'
   pull_request:
     branches: [ "main" ]
 
