@@ -6,6 +6,8 @@ name: BDD .NET
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - './srcBDD/JobBDD/**'
   pull_request:
     branches: [ "main" ]
 
